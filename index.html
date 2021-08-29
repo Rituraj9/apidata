@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Json to List</title>
+
+        <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<!-- Icons -->
+<link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
+<link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<!-- Argon CSS -->
+<link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+
+        <h1>LIST VIEW OF DATA</h1>
+        <div class="container">
+        <table class="table">
+        	<thead>
+        		<tr>
+        			<th>Name</th>
+        			<th>Company</th>
+        	</thead>
+
+        	<tbody id="data">
+
+        	</tbody>
+        </table>
+    <tbody>
+    </div>
+        <script>
+        	fetch("https://run.mocky.io/v3/f3feef1c-9bfa-43fd-b2a0-bbe9abadb4f6").then(res=>
+        	{
+        		res.json().then(data=>
+        		{
+        			//console.log(data.clients.length);
+        			if(data.clients.length>0)
+        			{
+        				var temp = "";
+
+        				for(var i=0;i<data.clients.length;i++)
+        				{
+        					console.log(i)
+        					temp+="<tr>";
+        					temp+="<td>"+data.clients[i].name+"</td>";
+        					temp+="<td>"+data.clients[i].company+"</td></th>";
+        				}
+
+        				document.getElementById("data").innerHTML = temp;
+        			}
+        		})
+        	})
+        </script>
+
+        <!-- Core -->
+<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Argon JS -->
+<script src="/assets/js/argon.min.js"></script>
+    </body>
+
+</html>
+
